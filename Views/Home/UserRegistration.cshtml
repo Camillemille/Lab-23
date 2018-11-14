@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "User Registration";
+}
+@*This is the HTML PAGE This is what the user sees*@
+<h2>Please fill the form to register</h2>
+
+
+
+<form action="/Home/Registration" method="post">
+
+    <label class="control-label">First Name</label><!--Makes first name label-->
+    <input type="text" name="FirstName" class=" form-control" <br /><!--Makes the box-->
+    <label class="control-label">Last Name</label><!--Makes Last name label-->
+    <input type="text" name="LastName" class="form-control"><!--Makes the last name box-->
+    <label class="control-label">Email</label>
+    <input type="text" name="Email" class="form-control" />
+    <label class="control-label">Phone Number</label>
+    <input type="text" name="PhoneNumber" class="form-control" placeholder=" 222-555-7878">
+    <label class="control-label">Password</label>
+    <input type="password" name="Password" class=" form-control">
+    <label class="control-label">Birthdate</label>
+    <input type="text" name="Birthdate" class=" form-control" /> <!--Name in your view must match the property model in your class-->
+
+    <input type="submit" value="Register" class="btn-default" /><!--registration button-->
+
+    @*onclick links javascript onclick="testFormInput()">register</button>*@
+
+
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>src=</script> 
+
