@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lab_21.Models;
- 
 
 
 
@@ -12,11 +11,13 @@ namespace Lab_21.Controllers
 {
     public class HomeController : Controller
     {
-        public ItemTable newItemTable { get; private set; }
-        public UserInfo newUserInfos { get; private set; }
+       // public Item newItem { get; private set; }
+        //public UserInfo newUserInfos { get; private set; }
 
         public ActionResult Index()
         {
+            CoffeeShopDBEntities database = new CoffeeShopDBEntities();
+            ViewBag.List = database.Items.ToList<Item>();
             return View();
         }
 
@@ -45,7 +46,7 @@ namespace Lab_21.Controllers
             
             return View();
         }
-        public ActionResult Registration(UserInfo newUser)
+        public ActionResult Registration(User newUser)
         {
            
 
@@ -53,7 +54,7 @@ namespace Lab_21.Controllers
             {
 
                 CoffeeShopDBEntities userDatabase = new CoffeeShopDBEntities(); // Let's us do stuff with the classes
-                userDatabase.UserInfoes.Add(newUser);
+                userDatabase.Users.Add(newUser);
                 userDatabase.SaveChanges();
                 ViewBag.AddedItem = "Item was added sucessfully added";
                 
@@ -71,6 +72,18 @@ namespace Lab_21.Controllers
 
             }
 
+        }
+        public ActionResult Admin()
+        {
+            CoffeeShopDBEntities database = new CoffeeShopDBEntities();
+            ViewBag.List = database.Items.ToList<Item>();
+            return View();
+        }
+        public ActionResult Itemdetails(string itemName)
+        {
+            CoffeeShopDBEntities database = new CoffeeShopDBEntities();
+            ViewBag.ItemToEdit = database.Items.Find(itemName);
+            return View();
         }
         
     }

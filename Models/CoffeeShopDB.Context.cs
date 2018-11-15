@@ -25,7 +25,7 @@ namespace Lab_21.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ItemTable> ItemTables { get; set; }
-        public virtual DbSet<UserInfo> UserInfoes { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
